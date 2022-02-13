@@ -1,0 +1,26 @@
+{
+  "name": "casedrafthub",
+  "version": "1.0.0",
+  "description": "in readme",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaesarHolland/CaseDraftHub.git"
+  },
+  "author": "caesar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaesarHolland/CaseDraftHub/issues"
+  },
+  "homepage": "https://github.com/CaesarHolland/CaseDraftHub#readme",
+  "devDependencies": {
+    "electron": "^12.0.0"
+  },
+  "dependencies": {
+    "codemirror": "^5.65.1"
+  }
+}

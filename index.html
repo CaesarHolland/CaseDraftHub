@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>病例草稿仓库</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/sidebar-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="asset/basic_icon/iconfont.css">
+</head>
+
+<body>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="header" style="font-size: 20px; text-align: center;">草 稿 库</li>
+                <li>
+                    <a href="#" id="addfile" style="text-align: center;" onclick="aClick(this)">
+                        <span class="iconfont icon-file-add" style="
+                        width: 100%; 
+                        font-size: 20px;">
+                    </span>
+                    </a>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="iconfont icon-aa">&nbsp;</i>
+                        <span>未完成</span>
+                        <small class="label pull-right label-danger">2</small>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu" id="unfinished"></ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="iconfont icon-finish1">&nbsp;</i>
+                        <span>已完成</span>
+                        <small class="label pull-right label-danger">7</small>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu" id="finished"></ul>
+                </li>
+
+                <!-- <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-share"></i> <span>Multilevel</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                    <li>
+                        <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                            <li>
+                                <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                </ul>
+            </li> -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="iconfont icon-set">&nbsp;</i>
+                        <span>设置</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="iconfont icon-human"></i> 编辑模板</a></li>
+                        <li><a href="#"><i class="iconfont icon-human"></i> 修改主题</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-book"></i> <span>Help</span></a></li>
+                <li class="header">LABELS</li>
+                <li><a href="#" id="test" onclick="aclick(this)"><i class="iconfont icon-circle"></i> <span>&nbsp; Important</span></a></li>
+                <li><a href="#"><i class="iconfont icon-circle"></i> <span>&nbsp; Warning</span></a></li>
+                <li><a href="#"><i class="iconfont icon-circle"></i> <span>&nbsp; Information</span></a></li>
+            </ul>
+        </section>
+    </aside>
+
+    <div class="platform">
+        <iframe src="html/shower.html" frameborder="0" style="
+          width: 100%;
+          height: 100%;"></iframe>
+    </div>
+
+
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script>
+        if (typeof module === 'object') {
+            window.jQuery = window.$ = module.exports;
+        };
+    </script>
+    <script src="js/render.js"></script>
+    <script src="js/fileOpr.js"></script>
+    <script>
+        $(function() {
+
+            $.sidebarMenu($('.sidebar-menu'))
+
+            var h = $(window).height();
+            $("body").css("height", h);
+            $("main-siderbar").css("height", h);
+            $("platform").css("height", h);
+
+            $(window).resize(function() {
+                var h = $(window).height();
+                $("body").css("height", h);
+                $("main-siderbar").css("height", h);
+                $("platform").css("height", h);
+            })
+
+            // init sidebar content:
+            var unfinList = getFileList(0);
+            var finList = getFileList(1);
+            // unfinished list init:
+            for (let i = 0; i < unfinList.length; i++) {
+                let liUnit = "<li><a href=\"#\" id=\"" + unfinList[i][1] + "\" onclick=\"aClick(this)\"><i class=\"iconfont icon-human\"></i>" + " " + unfinList[i][0] + "</a></li>"
+                    // console.log(liUnit);
+                $("#unfinished").append(liUnit);
+            }
+            // finished list init:
+            for (let i = 0; i < finList.length; i++) {
+                let liUnit = "<li><a href=\"#\" id=\"" + finList[i][1] + "\" onclick=\"aClick(this)\"><i class=\"iconfont icon-human\"></i>" + " " + finList[i][0] + "</a></li>"
+                    // console.log(liUnit);
+                $("#finished").append(liUnit);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

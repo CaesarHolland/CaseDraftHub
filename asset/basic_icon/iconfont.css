@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1644652182468') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before {
+  content: "\e6b4";
+}
+
+.icon-set:before {
+  content: "\e6b0";
+}
+
+.icon-humanchild:before {
+  content: "\e8da";
+}
+
+.icon-aa:before {
+  content: "\e61c";
+}
+
+.icon-finish:before {
+  content: "\e60e";
+}
+
+.icon-color:before {
+  content: "\e760";
+}
+
+.icon-human:before {
+  content: "\e7a8";
+}
+
+.icon-human-male:before {
+  content: "\e7ab";
+}
+
+.icon-human-pregnant:before {
+  content: "\e7ac";
+}
+
+.icon-save:before {
+  content: "\e791";
+}
+
+.icon-file-add:before {
+  content: "\e7b7";
+}
+
+.icon-YAML:before {
+  content: "\e625";
+}
+
+.icon-finish1:before {
+  content: "\e6c7";
+}
+
+.icon-shigong:before {
+  content: "\e65d";
+}
+
+.icon-circle:before {
+  content: "\e6aa";
+}
+
+.icon-add:before {
+  content: "\e742";
+}
+
+.icon-edit:before {
+  content: "\e66e";
+}
+
+.icon-TimeSquare:before {
+  content: "\e629";
+}
+
+.icon-icon_reset:before {
+  content: "\e558";
+}
+

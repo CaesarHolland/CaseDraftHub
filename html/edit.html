@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+    <link rel="stylesheet" href="..\bower_components\bootstrap\dist\css\bootstrap.min.css">
+    <link rel="stylesheet" href="..\css\editor.css">
+    <link rel="stylesheet" href="../asset/basic_icon/iconfont.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="../node_modules/codemirror/theme/dracula.css">
+    <script src="../node_modules/codemirror/lib/codemirror.js"></script>
+    <script src="../node_modules/codemirror/mode/yaml/yaml.js"></script>
+</head>
+
+<body style="background-color: transparent;">
+    <div class="box">
+        <form action="" id="draft">
+            <div class="namebox">
+                <span>姓名: </span>
+                <input type="text" id="name">
+            </div>
+            <textarea class="form-control" id="code" name="code"></textarea>
+            <div class="btn-group btn-group-lg" role="group" aria-label="...">
+                <button type="button" class="btn btn-default" id="savebtn">保存</button>
+                <button type="button" class="btn btn-default" id="resetbtn">重置</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- <script src="../js/dialog.js"></script> -->
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/editor.js"></script>
+    <script>
+        $(function() {
+            var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+                mode: "text/yaml",
+                lineNumbers: true,
+                theme: "dracula",
+            });
+            $("#savebtn").click(function() {
+                var content = editor.getValue();
+                var rn = 1;
+                for (let i = 0; i < content.length; i++) {
+                    if (content[i] == "：") {
+                        alert("语法错误: 请检查第 " + rn + " 行的冒号是否为英文");
+                        return;
+                        rn += 1;
+                    } else if (content[i] == ":") {
+                        rn += 1;
+                    }
+                }
+                var name = $("#name").val();
+                if (typeof(name) == "undefined" || !name)
+                    alert("请输入姓名");
+                saveFile(content, name);
+                editor.setValue("");
+                $("#name").val("");
+            });
+            $("#resetbtn").click(function() {
+                var res = confirm("这会删除页面所有内容，您确定要重置文档吗?");
+                if (res == true) {
+                    editor.setValue("");
+                    $("#name").val("");
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
