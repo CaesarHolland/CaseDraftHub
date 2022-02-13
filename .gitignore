@@ -58,3 +58,6 @@ spec/fixtures/logo.png
 
 # Packaged programe
 out/*
+
+# bower dir
+bower_components/*
