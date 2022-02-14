@@ -8,3 +8,11 @@
 >
 > Usually not fast enough in this way, need electronic. So I made it.
 
+
+### Brief
+- YAML文件存储病例草稿
+- 所有病人草稿存储在一个YAML文件里面
+- YAML文件只负责存储信息不负责展示信息，展示信息交给HTML页面
+- 一个病人一个YAML文件，所有YAML文件在同一个文件夹里，名为【CaseDraft】
+- 打开程序时，所有病例草稿将一起并分页展示
+
