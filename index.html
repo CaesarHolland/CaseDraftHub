@@ -31,7 +31,7 @@
                     <a href="#">
                         <i class="iconfont icon-aa">&nbsp;</i>
                         <span>未完成</span>
-                        <small class="label pull-right label-danger">2</small>
+                        <small class="label pull-right label-danger" id="ufid">0</small>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu" id="unfinished"></ul>
@@ -40,7 +40,7 @@
                     <a href="#">
                         <i class="iconfont icon-finish1">&nbsp;</i>
                         <span>已完成</span>
-                        <small class="label pull-right label-danger">7</small>
+                        <small class="label pull-right label-danger" id="fid">0</small>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu" id="finished"></ul>
@@ -90,7 +90,7 @@
     </aside>
 
     <div class="platform">
-        <iframe src="html/shower.html" frameborder="0" style="
+        <iframe src="html/edit.html" frameborder="0" style="
           width: 100%;
           height: 100%;"></iframe>
     </div>
@@ -125,19 +125,29 @@
             // init sidebar content:
             var unfinList = getFileList(0);
             var finList = getFileList(1);
+            let ulen = unfinList.length;
             // unfinished list init:
-            for (let i = 0; i < unfinList.length; i++) {
+            $("#ufid").text(ulen);
+            for (let i = 0; i < ulen; i++) {
                 let liUnit = "<li><a href=\"#\" id=\"" + unfinList[i][1] + "\" onclick=\"aClick(this)\"><i class=\"iconfont icon-human\"></i>" + " " + unfinList[i][0] + "</a></li>"
                     // console.log(liUnit);
                 $("#unfinished").append(liUnit);
             }
             // finished list init:
+            $("#fid").text(finList.length);
             for (let i = 0; i < finList.length; i++) {
                 let liUnit = "<li><a href=\"#\" id=\"" + finList[i][1] + "\" onclick=\"aClick(this)\"><i class=\"iconfont icon-human\"></i>" + " " + finList[i][0] + "</a></li>"
                     // console.log(liUnit);
                 $("#finished").append(liUnit);
             }
 
+            // init job rest count and status;
+            sessionStorage.setItem("jobCount", ulen);
+            if (ulen == 0) {
+                sessionStorage.setItem("jobStatus", -1);
+            } else {
+                sessionStorage.setItem("jonStatus", 1);
+            }
         });
     </script>
 </body>

@@ -1,9 +1,10 @@
 const require = parent.window.require;
 const fs = require('fs');
+// const { BrowserWindow } = require('@electron/remote');
 
 var userAgent = navigator.userAgent.toLowerCase();
 if (userAgent.indexOf(' electron/') > -1) {
-    const remote = require('electron').remote; //修改默认对话框，修复electron弹出默认对话框后页面失去焦点的bug
+    const remote = require('@electron/remote'); //修改默认对话框，修复electron弹出默认对话框后页面失去焦点的bug
     // 获取父窗口对象
     let mainwindow = remote.getCurrentWindow();
     alert = function(str) {

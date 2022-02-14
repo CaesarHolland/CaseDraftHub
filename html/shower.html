@@ -7,23 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shower</title>
     <link rel="stylesheet" href="../css/shower.css">
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/fileOpr.js"></script>
+    <script src="../js/shower.js"></script>
 </head>
 
 <body style="background-color: transparent;">
     <div class="box">
         <table>
-            <tr>
-                <td>姓名</td>
-                <td><input type="text" value=""></td>
-                <td><button>复制</button></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>标签</th>
+                    <th>标签值</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="panel"></tbody>
         </table>
+        <div class="btngroup">
+            <button onclick="endAct(this)">完成</button>
+            <button onclick="endAct(this)">删除</button>
+        </div>
     </div>
 
-    <script src="../js/jquery-2.1.1.min.js"></script>
+
     <script>
         $(function() {
-
+            let path = sessionStorage.getItem("file");
+            // console.log(path);
+            let articleObj = getMyFile(path);
+            // console.log(articleObj);
+            for (let key in articleObj) {
+                // console.log(key);
+                let unit = "<tr><td>" + key + "</td><td>" + articleObj[key] + "</td><td><button onclick=\"mycopy(this)\">复制</button></td></tr>";
+                $("#panel").append(unit);
+            }
         })
     </script>
 </body>

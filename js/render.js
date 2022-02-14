@@ -46,7 +46,7 @@ function aClick(obj) {
     }
 
     let pid = $(obj).parents("ul").attr("id");
-    console.log(pid);
     let path = pid + "/" + id;
-    // $("iframe").attr("src", "html/edit.html");
+    sessionStorage.setItem("file", path);
+    $("iframe").attr("src", "html/shower.html");
 }

@@ -14,10 +14,24 @@ function saveFile(content, name) {
     alert("保存成功");
 }
 
-function getMyFile(filename) {
-
+/**
+ * 根据filepath读取data内相应yaml文件，并解析为JSON对象返回
+ * @param {*} filepath 
+ * @returns JSON object
+ */
+function getMyFile(filepath) {
+    let yaml = require('js-yaml');
+    let fs = require('fs');
+    let content = fs.readFileSync("./data/" + filepath, { encoding: "utf8" });
+    let res = yaml.load(content);
+    return eval(res);
 }
 
+/**
+ * 根据类型读取unfinished或finished文件夹yaml文件列表，并解析为[[name,filename],...]格式数组返回
+ * @param {*} type 
+ * @returns [[name,filename],...]格式数组
+ */
 function getFileList(type) {
     let yaml = require('js-yaml');
     let fs = require("fs");
@@ -38,20 +52,4 @@ function getFileList(type) {
     });
     // console.log(fileGroup);
     return fileGroup;
-}
-
-function count(o) {
-    var t = typeof o;
-
-    if (t == 'string') {
-        return o.length;
-    } else if (t == 'object') {
-        var n = 0;
-
-        for (var i in o) {
-            n++;
-        }
-        return n;
-    }
-    return false;
 }

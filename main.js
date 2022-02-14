@@ -3,12 +3,13 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 function createWindow() {
+    const remote = require('@electron/remote/main');
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         width: 1000,
         height: 800,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            // preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: true,
             enableRemoteModule: true,
             contextIsolation: false
@@ -18,8 +19,10 @@ function createWindow() {
     // and load the index.html of the app.
     mainWindow.loadFile('index.html')
 
-    // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    remote.initialize();
+    remote.enable(mainWindow.webContents)
+        // Open the DevTools.
+        // mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
