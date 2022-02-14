@@ -16,3 +16,7 @@
     --saveBtnFont-color: rgb(184, 199, 206);
     --resetBtn-color:
 }
+
+button:hover {
+    cursor: pointer;
+}

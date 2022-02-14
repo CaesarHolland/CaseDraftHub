@@ -1,8 +1,12 @@
 // const { listenerCount } = require('process');
 
 const require = parent.window.require;
-// const fs = require('fs');
 
+/**
+ * 保存文件，以【姓名-时间戳.yaml】的格式保存至/data/unfinished/下
+ * @param {*} content 
+ * @param {*} name 
+ */
 function saveFile(content, name) {
     let fs = require('fs');
     let d = new Date();

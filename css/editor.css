@@ -14,8 +14,27 @@
     margin: 10px;
 }
 
-.savebtn,
-.resetbtn {
-    background-color: var(--saveBtn-color);
-    color: var(--saveBtnFont-color);
+#name {
+    outline: none;
+    border-radius: 5px;
+    border: 0px;
+    /* background-color: rgb(red, green, blue); */
+}
+
+.btngroup {
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btngroup button {
+    width: 20%;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.btngroup button:hover {
+    background-color: red;
+    color: aliceblue;
 }

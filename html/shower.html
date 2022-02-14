@@ -25,8 +25,8 @@
             <tbody id="panel"></tbody>
         </table>
         <div class="btngroup">
-            <button onclick="endAct(this)">完成</button>
             <button onclick="endAct(this)">删除</button>
+            <button onclick="endAct(this)">完成</button>
         </div>
     </div>
 
@@ -41,6 +41,12 @@
                 // console.log(key);
                 let unit = "<tr><td>" + key + "</td><td>" + articleObj[key] + "</td><td><button onclick=\"mycopy(this)\">复制</button></td></tr>";
                 $("#panel").append(unit);
+            }
+
+            // 判断是否是完成病例的页面，是的话添加“回滚”按钮
+            let fileStatus = sessionStorage.getItem("file").split("/")[0];
+            if (fileStatus == "finished") {
+                $(".btngroup").append("<button onclick=\"endAct(this)\">回滚</button>");
             }
         })
     </script>

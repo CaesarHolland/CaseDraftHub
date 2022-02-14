@@ -38,6 +38,11 @@ $.sidebarMenu = function(menu) {
     });
 }
 
+/**
+ * a标签点击事件函数，负责根据触发事件的a标签的id设置iframe到相应的src
+ * @param {*} obj 
+ * @returns 
+ */
 function aClick(obj) {
     let id = $(obj).prop('id');
     if (id == "addfile") {

@@ -19,19 +19,20 @@
     <div class="box">
         <form action="" id="draft">
             <div class="namebox">
-                <span>姓名: </span>
+                <span style="color:aliceblue; margin-right: 20px; font-size: 20px;">姓名: </span>
                 <input type="text" id="name">
             </div>
             <textarea class="form-control" id="code" name="code"></textarea>
-            <div class="btn-group btn-group-lg" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" id="savebtn">保存</button>
-                <button type="button" class="btn btn-default" id="resetbtn">重置</button>
+            <div class="btngroup">
+                <button id="savebtn">保存</button>
+                <button id="resetbtn">重置</button>
             </div>
         </form>
     </div>
 
     <!-- <script src="../js/dialog.js"></script> -->
     <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/fileOpr.js"></script>
     <script src="../js/editor.js"></script>
     <script>
         $(function() {
@@ -40,6 +41,7 @@
                 lineNumbers: true,
                 theme: "dracula",
             });
+            initModel(editor);
             $("#savebtn").click(function() {
                 var content = editor.getValue();
                 var rn = 1;

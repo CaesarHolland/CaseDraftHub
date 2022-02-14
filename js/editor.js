@@ -1,5 +1,5 @@
-const require = parent.window.require;
-const fs = require('fs');
+// const require = parent.window.require;
+// const fs = require('fs');
 // const { BrowserWindow } = require('@electron/remote');
 
 var userAgent = navigator.userAgent.toLowerCase();
@@ -37,16 +37,28 @@ if (userAgent.indexOf(' electron/') > -1) {
     }
 }
 
-function saveFile(content, name) {
-    // var fs = require('fs');
-    var d = new Date();
-    var path = "./data/unfinished/" + d.getTime() + ".yaml";
-    var time = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-    var realcontent = "姓名: " + name + "\n" + "入院时间: " + time + "\n" + content;
-    // console.log(realcontent);
-    fs.writeFileSync(path, realcontent);
-    alert("保存成功");
+/**
+ * 根据自定义模板model.txt初始化编辑器预定义的内容
+ * @param {*} editor 
+ */
+function initModel(editor) {
+    let fs = require('fs');
+    let confpath = "./conf/model.txt";
+    let content = fs.readFileSync(confpath, { encoding: "utf-8" });
+    console.log(content);
+    editor.setValue(content);
 }
+
+// function saveFile(content, name) {
+//     // var fs = require('fs');
+//     var d = new Date();
+//     var path = "./data/unfinished/" + d.getTime() + ".yaml";
+//     var time = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+//     var realcontent = "姓名: " + name + "\n" + "入院时间: " + time + "\n" + content;
+//     // console.log(realcontent);
+//     fs.writeFileSync(path, realcontent);
+//     alert("保存成功");
+// }
 
 
 // function makeUuid() {

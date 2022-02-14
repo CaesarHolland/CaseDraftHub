@@ -1,3 +1,4 @@
+@import './colorScheme.css';
 .box {
     position: absolute;
     width: 80%;
@@ -122,10 +123,18 @@ td button {
 
 .btngroup {
     margin: 100px auto;
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    justify-content: space-around;
 }
 
 .btngroup button {
-    width: 50%;
+    width: 20%;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.btngroup button:hover {
+    background-color: red;
+    color: aliceblue;
 }

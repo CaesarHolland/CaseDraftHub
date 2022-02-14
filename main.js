@@ -6,7 +6,7 @@ function createWindow() {
     const remote = require('@electron/remote/main');
     // Create the browser window.
     const mainWindow = new BrowserWindow({
-        width: 1000,
+        width: 1300,
         height: 800,
         webPreferences: {
             // preload: path.join(__dirname, 'preload.js'),
