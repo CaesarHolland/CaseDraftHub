@@ -16,3 +16,7 @@
 - 支持自定义主题配色
 
 ![image](https://user-images.githubusercontent.com/51748713/153998071-30cc5195-ef1a-4247-b551-9125abc05dd4.png)
+
+### Previous:
+```bash
+npm install
