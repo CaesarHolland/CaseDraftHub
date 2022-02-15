@@ -48,10 +48,14 @@ function aClick(obj) {
     if (id == "addfile") {
         $("iframe").attr("src", "html/edit.html");
         return;
+    } else if (id == "modelEdit") {
+        $("iframe").attr("src", "html/modelEditor.html");
+        return;
     }
 
     let pid = $(obj).parents("ul").attr("id");
     let path = pid + "/" + id;
     sessionStorage.setItem("file", path);
     $("iframe").attr("src", "html/shower.html");
+    return;
 }
