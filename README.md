@@ -19,4 +19,14 @@
 
 ### Previous:
 ```bash
+electron v17.0.0 && npm v16.3 && electron-forge
+
+```bash
 npm install
+
+```bash
+npm install --save-dev bower
+
+```bash
+bower install bootstrap
+
