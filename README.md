@@ -17,7 +17,7 @@
 
 ![image](https://user-images.githubusercontent.com/51748713/153998071-30cc5195-ef1a-4247-b551-9125abc05dd4.png)
 
-### Previous:
+### Previous
 ```bash
 electron v17.0.0 && npm v16.3 && electron-forge
 
@@ -28,3 +28,7 @@ npm install --save-dev bower
 bower install bootstrap
 
 ```
+
+### Package Application
+```bash
+npm run make
