@@ -11,8 +11,24 @@
 
 ### Brief
 - YAML文件存储病例草稿
-- 所有病人草稿存储在一个YAML文件里面
-- YAML文件只负责存储信息不负责展示信息，展示信息交给HTML页面
-- 一个病人一个YAML文件，所有YAML文件在同一个文件夹里，名为【CaseDraft】
-- 打开程序时，所有病例草稿将一起并分页展示
+- 所有病例草稿存储在data路径下，子路径为/unfinished/与/finished/
+- 支持自定义默认病例草稿模板
+- 支持自定义主题配色
 
+![image](https://user-images.githubusercontent.com/51748713/153998071-30cc5195-ef1a-4247-b551-9125abc05dd4.png)
+
+### Previous
+```bash
+electron v17.0.0 && npm v16.3 && electron-forge
+
+npm install
+
+npm install --save-dev bower
+
+bower install bootstrap
+
+```
+
+### Package Application
+```bash
+npm run make
