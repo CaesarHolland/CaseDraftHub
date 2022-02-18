@@ -20,8 +20,8 @@
         <form action="" id="draft">
             <textarea class="form-control" id="code" name="code"></textarea>
             <div class="btngroup">
-                <button id="savebtn">保存模板</button>
-                <button id="resetbtn">重置模板</button>
+                <button type="button" id="savebtn">保存模板</button>
+                <!-- <button id="resetbtn">重置模板</button> -->
             </div>
         </form>
     </div>
@@ -50,15 +50,16 @@
                     }
                 }
                 saveFile(content, name, 1);
-                editor.setValue("");
+                // editor.setValue("");
+                location.reload();
             });
-            $("#resetbtn").click(function() {
-                var res = confirm("这会删除页面所有内容，您确定要重置文档吗?");
-                if (res == true) {
-                    editor.setValue("");
-                    $("#name").val("");
-                }
-            });
+            // $("#resetbtn").click(function() {
+            //     var res = confirm("这会删除页面所有内容，您确定要重置文档吗?");
+            //     if (res == true) {
+            //         editor.setValue("");
+            //         $("#name").val("");
+            //     }
+            // });
         })
     </script>
 </body>

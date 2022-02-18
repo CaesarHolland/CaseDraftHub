@@ -24,8 +24,8 @@
             </div>
             <textarea class="form-control" id="code" name="code"></textarea>
             <div class="btngroup">
-                <button id="savebtn">保存</button>
-                <button id="resetbtn">重置</button>
+                <button type="button" id="savebtn">保存</button>
+                <!-- <button type="button" id="resetbtn">重置</button> -->
             </div>
         </form>
     </div>
@@ -59,17 +59,17 @@
                     alert("请输入姓名");
                 } else {
                     saveFile(content, name, 0);
-                    editor.setValue("");
-                    $("#name").val("");
+                    location.reload();
                 }
             });
-            $("#resetbtn").click(function() {
-                var res = confirm("这会删除页面所有内容，您确定要重置文档吗?");
-                if (res == true) {
-                    editor.setValue("");
-                    $("#name").val("");
-                }
-            });
+            // $("#resetbtn").click(function() {
+            //     confirm("这会删除页面所有内容，您确定要重置文档吗?", function(res) {
+            //         console.log("hi");
+            //         if (res == false) {
+            //             location.reload();
+            //         }
+            //     });
+            // });
         })
     </script>
 </body>
