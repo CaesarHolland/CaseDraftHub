@@ -57,7 +57,7 @@ patches/mtime-cache.json
 spec/fixtures/logo.png
 
 # Packaged programe
-out/*
+out/
 
 # bower dir
-bower_components/*
+bower_components/

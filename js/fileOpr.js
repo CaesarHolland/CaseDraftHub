@@ -7,12 +7,17 @@ const require = parent.window.require;
  * @param {*} content 
  * @param {*} name 
  */
-function saveFile(content, name) {
+function saveFile(content, name, type) {
     let fs = require('fs');
-    let d = new Date();
-    let path = "./data/unfinished/" + name + "-" + d.getTime() + ".yaml";
-    let time = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-    let realcontent = "姓名: " + name + "\n" + "入院时间: " + time + "\n" + content;
+    if (type == 0) {
+        let d = new Date();
+        var path = "./data/unfinished/" + name + "-" + d.getTime() + ".yaml";
+        let time = d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        var realcontent = "姓名: " + name + "\n" + "入院时间: " + time + "\n" + content;
+    } else if (type == 1) {
+        var path = "./conf/model.txt";
+        var realcontent = content;
+    }
     // console.log(realcontent);
     fs.writeFileSync(path, realcontent);
     alert("保存成功");

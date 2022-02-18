@@ -1,63 +1,71 @@
 {
-  "name": "casedrafthub",
-  "version": "1.0.0",
-  "description": "in readme",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CaesarHolland/CaseDraftHub.git"
-  },
-  "author": "caesar",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CaesarHolland/CaseDraftHub/issues"
-  },
-  "homepage": "https://github.com/CaesarHolland/CaseDraftHub#readme",
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.63",
-    "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-    "@electron-forge/maker-zip": "^6.0.0-beta.63",
-    "@electron/remote": "^2.0.4",
-    "electron": "^17.0.0",
-    "js-yaml": "^4.1.0"
-  },
-  "dependencies": {
-    "codemirror": "^5.65.1",
-    "electron-squirrel-startup": "^1.0.0"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "casedrafthub"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
+    "name": "casedrafthub",
+    "version": "1.0.0",
+    "description": "in readme",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "package": "electron-forge package",
+        "make": "electron-forge make"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CaesarHolland/CaseDraftHub.git"
+    },
+    "author": "caesar",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/CaesarHolland/CaseDraftHub/issues"
+    },
+    "homepage": "https://github.com/CaesarHolland/CaseDraftHub#readme",
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.63",
+        "@electron-forge/maker-deb": "^6.0.0-beta.63",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+        "@electron-forge/maker-zip": "^6.0.0-beta.63",
+        "@electron/remote": "^2.0.4",
+        "electron": "^17.0.0",
+        "js-yaml": "^4.1.0"
+    },
+    "dependencies": {
+        "electron": "^17.0.0",
+        "js-yaml": "^4.1.0",
+        "@electron/remote": "^2.0.4",
+        "codemirror": "^5.65.1",
+        "electron-squirrel-startup": "^1.0.0"
+    },
+    "build": {
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
         }
-      ]
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [{
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "casedrafthub"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ]
+        }
     }
-  }
 }
